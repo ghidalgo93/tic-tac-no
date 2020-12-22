@@ -19,6 +19,13 @@
     <div id="app-container" class="app">
       <h1 id="title">Tic Tac Toe</h1>
       <button id="start-btn">Start</button>
+      <div id="form-container" class="form-hide">
+        <form id="name-form" action="/src/index.js">
+          <input type="text" name="player1" placeholder="player 1" />
+          <input type="text" name="player2" placeholder="player 2" />
+        </form>
+        <button id="names-btn" type="submit" form="name-form">Play Game</button>
+      </div>
       <script src="main.js"></script>
     </div>
   </body>
