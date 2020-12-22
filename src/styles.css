@@ -1,0 +1,29 @@
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+
+.app {
+  height: 100%;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+}
+
+h1 {
+  font-family: "Monoton", cursive;
+  font-size: 80px;
+  transition: font-size 2s;
+}
+
+.slide {
+  transform: translateY(-400px);
+  transition: transform 1s;
+}
+
+button {
+  font-family: "Fredoka One", cursive;
+  font-size: 20px;
+}
