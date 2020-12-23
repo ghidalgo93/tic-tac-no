@@ -17,14 +17,34 @@
   </head>
   <body>
     <div id="app-container" class="app">
-      <h1 id="title">Tic Tac Toe</h1>
-      <button id="start-btn">Start</button>
-      <div id="form-container" class="form-hide">
-        <form id="name-form" action="/src/index.js">
-          <input type="text" name="player1" placeholder="player 1" />
-          <input type="text" name="player2" placeholder="player 2" />
+      <h1 id="title" class="fade-in">Tic Tac Toe</h1>
+      <!-- <div id='game-container'> -->
+      <!-- 	gameboard, 3x3 grid -->
+      <!-- 	restart button -->
+      <!-- </div> -->
+      <button id="start-btn" class="fade-in">Start</button>
+      <div id="form-container" class="form-hide fade-in">
+        <div id="player-names" class="names">
+          <p>Player 1</p>
+          <p>Player 2</p>
+        </div>
+        <form id="name-form" class="names" action="/src/index.js">
+          <input
+            type="text"
+            name="player1"
+            placeholder="enter name"
+            class="inputs"
+            autocomplete="false"
+          />
+          <input
+            type="text"
+            name="player2"
+            placeholder="enter name"
+            class="inputs"
+            autocomplete="false"
+          />
         </form>
-        <button id="names-btn" type="submit" form="name-form">Play Game</button>
+        <button id="play-btn" type="submit" form="name-form">Play</button>
       </div>
       <script src="main.js"></script>
     </div>
