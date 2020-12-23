@@ -103,3 +103,11 @@ button:hover {
     transform: translateX(0px);
   }
 }
+
+.slide-down {
+  transform: translateY(400px);
+  opacity: 0;
+  visibility: hidden;
+  z-index: 0;
+  transition: visibility 2s, opacity 1s, transform 1s;
+}

@@ -21,18 +21,19 @@ const displayController = (() => {
     "click",
     function (e) {
       e.preventDefault();
-      formContainer.classList.remove("shake");
       const inputsRaw = document.querySelectorAll(".inputs");
       const inputs = [inputsRaw[0].value, inputsRaw[1].value];
       if (helpers.verifyInputs(inputs)) {
         // get names from form => send them to program somehow...
         // Store names
         // form container slide down
+        formContainer.classList.add("slide-down");
         // game container fade in
         const form = document.getElementById("name-form");
         form.reset();
       } else {
-        // shake animation
+        formContainer.classList.remove("shake");
+        void formContainer.offsetWidth;
         formContainer.classList.add("shake");
       }
     },
