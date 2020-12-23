@@ -1,4 +1,5 @@
-html,
+html {
+}
 body {
   height: 100%;
   margin: 0;
@@ -17,16 +18,11 @@ h1 {
   font-family: "Monoton", cursive;
   font-size: 90px;
   text-shadow: 4px 4px #a0a6aa;
-  opacity: 1;
   transform: translateY(400px);
   transition: font-size 2s;
-  animation-name: fadeIn;
-  animation-iteration-count: 1;
-  animation-timing-function: ease-in;
-  animation-duration: 2s;
 }
 
-.slide {
+.slide-up {
   transform: translateY(-40px);
   transition: transform 1s;
 }
@@ -38,10 +34,6 @@ button {
   border: none;
   border-radius: 5px;
   background-color: black;
-  animation-name: fadeIn;
-  animation-iteration-count: 1;
-  animation-timing-function: ease-in;
-  animation-duration: 2s;
 }
 
 button:hover {
@@ -61,24 +53,28 @@ button:hover {
 .form-display {
   display: flex;
   flex-flow: column;
-  justify-content: space-around;
   align-items: center;
   width: 100%;
   height: 30%;
-  animation-name: fadeIn;
-  animation-iteration-count: 1;
-  animation-timing-function: ease-in;
-  animation-duration: 1s;
 }
 
-#name-form {
+.names {
   display: flex;
   flex-flow: row;
   justify-content: space-evenly;
+  width: 100%;
 }
 
-#names-btn {
-  width: 7em;
+.inputs {
+  font-family: "Fredoka One", cursive;
+}
+
+.fade-in {
+  opacity: 1;
+  animation-name: fadeIn;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-in;
+  animation-duration: 2s;
 }
 
 @keyframes fadeIn {
@@ -87,5 +83,23 @@ button:hover {
   }
   100% {
     opacity: 1;
+  }
+}
+
+.shake {
+  animation-name: shake;
+  animation-iteration-count: 5;
+  animation-duration: 0.1s;
+}
+
+@keyframes shake {
+  0% {
+    transform: translateX(-10px);
+  }
+  50% {
+    transform: translateX(10px);
+  }
+  100% {
+    transform: translateX(0px);
   }
 }
