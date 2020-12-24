@@ -1,6 +1,14 @@
 import helpers from "./helpers";
 
 const displayController = (() => {
+  function resetNamesForm() {
+    document.getElementById("name-form").reset();
+  }
+  function displayBoard(boardArray) {
+    const gameboard = document.getElementById("gameboard");
+    // helpers.removeAllChildNodes(gameboard)
+    // reload the board with the given gameboard array
+  }
   function startAnimation() {
     this.style.display = "none";
     const title = document.getElementById("title");
@@ -12,22 +20,25 @@ const displayController = (() => {
   function play(e) {
     e.preventDefault();
     const formContainer = document.getElementById("form-container");
+    const gameContainer = document.getElementById("game-container");
     const inputsRaw = document.querySelectorAll(".inputs");
     const inputs = [inputsRaw[0].value, inputsRaw[1].value];
     if (helpers.verifyInputs(inputs)) {
-      // get names from form => send them to program somehow...
-      // Store names
       formContainer.classList.add("slide-down");
-      // game container fade in
-      const form = document.getElementById("name-form");
-      form.reset();
+      gameContainer.classList.add("game-display");
+      const player1NameContainer = document.getElementById("player1-name");
+      const player2NameContainer = document.getElementById("player2-name");
+      player1NameContainer.textContent = inputs[0];
+      player2NameContainer.textContent = inputs[1];
+      // Store names
       return inputs;
     }
     formContainer.classList.remove("shake");
     void formContainer.offsetWidth;
     formContainer.classList.add("shake");
+    return undefined;
   }
-  return { startAnimation, play };
+  return { resetNamesForm, startAnimation, play };
 })();
 
 export default displayController;

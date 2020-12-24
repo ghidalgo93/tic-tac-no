@@ -6,7 +6,13 @@ const helpers = (() => {
     return true;
   };
 
-  return { verifyInputs };
+  function removeAllChildNodes(parent) {
+    while (parent.firstChild) {
+      parent.removeChild(parent.firstChild);
+    }
+  }
+
+  return { verifyInputs, removeAllChildNodes };
 })();
 
 export default helpers;
