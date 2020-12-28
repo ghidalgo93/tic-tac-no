@@ -4,8 +4,13 @@ const displayController = (() => {
   function resetNamesForm() {
     document.getElementById("name-form").reset();
   }
-  function displayBoard(boardArray) {
+  function displayBoard() {
     const gameboard = document.getElementById("gameboard");
+    for (let i = 0; i < 9; i++) {
+      const foo = document.createElement("div");
+      foo.classList.add("game-square");
+      gameboard.appendChild(foo);
+    }
     // helpers.removeAllChildNodes(gameboard)
     // reload the board with the given gameboard array
   }
@@ -30,6 +35,9 @@ const displayController = (() => {
       const player2NameContainer = document.getElementById("player2-name");
       player1NameContainer.textContent = inputs[0];
       player2NameContainer.textContent = inputs[1];
+
+      displayBoard();
+
       // Store names
       return inputs;
     }
