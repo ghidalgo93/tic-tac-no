@@ -38,7 +38,7 @@ const gameboard = (() => {
         winner = tokens[0];
       } else if (array.every((elem) => elem === tokens[1])) {
         result = "win";
-        winner = _tokens[1];
+        winner = tokens[1];
       } else if (array.every((elem) => elem !== "")) {
         arraysFilled++;
       }
