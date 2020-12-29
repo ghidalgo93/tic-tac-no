@@ -6,14 +6,14 @@ const displayController = (() => {
   }
   function displayBoard(board) {
     const gameboard = document.getElementById("gameboard");
-    board.forEach((token) => {
-      const foo = document.createElement("div");
-      foo.classList.add("game-square");
-      foo.textContent = token;
-      gameboard.appendChild(foo);
+    helpers.removeAllChildNodes(gameboard);
+    board.forEach((token, i) => {
+      const square = document.createElement("div");
+      square.classList.add("game-square");
+      square.textContent = token;
+      square.dataset.index = i;
+      gameboard.appendChild(square);
     });
-    // helpers.removeAllChildNodes(gameboard)
-    // reload the board with the given gameboard array
   }
   function startAnimation() {
     this.style.display = "none";
@@ -36,11 +36,6 @@ const displayController = (() => {
       const player2NameContainer = document.getElementById("player2-name");
       player1NameContainer.textContent = inputs[0];
       player2NameContainer.textContent = inputs[1];
-
-      // const test = ["", "", "", "", "", "", "", "", ""];
-      // displayBoard(test);
-
-      // Store names
       return inputs;
     }
     formContainer.classList.remove("shake");
@@ -48,7 +43,7 @@ const displayController = (() => {
     formContainer.classList.add("shake");
     return undefined;
   }
-  return { resetNamesForm, startAnimation, play };
+  return { resetNamesForm, displayBoard, startAnimation, play };
 })();
 
 export default displayController;
