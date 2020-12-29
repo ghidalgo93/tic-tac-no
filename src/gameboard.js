@@ -53,11 +53,25 @@ const gameboard = (() => {
       winner,
     };
   };
+  const gameOver = () => {
+    return checkBoard().result !== undefined;
+  };
+  const checkUnoccupied = (index) => {
+    return getBoard()[index].length === 0;
+  };
+
   const clearBoard = () => {
     board = ["", "", "", "", "", "", "", "", ""];
   };
 
-  return { getBoard, placeToken, checkBoard, clearBoard };
+  return {
+    getBoard,
+    placeToken,
+    checkBoard,
+    gameOver,
+    checkUnoccupied,
+    clearBoard,
+  };
 })();
 
 export default gameboard;

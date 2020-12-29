@@ -16,7 +16,7 @@ h1 {
   font-family: "Monoton", cursive;
   font-size: 90px;
   text-shadow: 4px 4px #a0a6aa;
-  transform: translateY(400px);
+  transform: translateY(300px);
   transition: font-size 2s;
 }
 
@@ -74,6 +74,11 @@ button:hover {
   width: 100%;
 }
 
+.text {
+  font-size: 1.5em;
+  margin: 1em;
+}
+
 #scoreboard-gameboard {
   display: flex;
   justify-content: space-evenly;
@@ -102,6 +107,11 @@ button:hover {
 
 .game-square:hover {
   background-color: grey;
+}
+
+.game-buttons {
+  font-size: 1.5em;
+  margin: 5px;
 }
 
 .fade-in {

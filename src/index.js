@@ -13,6 +13,8 @@ const game = (() => {
   const startBtn = document.getElementById("start-btn");
   const playBtn = document.getElementById("play-btn");
   const gameboardElem = document.getElementById("gameboard");
+  const resetGame = document.getElementById("reset-button");
+  const resetPlayers = document.getElementById("reset-players");
 
   startBtn.addEventListener("click", displayController.startAnimation, false);
   playBtn.addEventListener(
@@ -20,25 +22,39 @@ const game = (() => {
     (e) => {
       const names = displayController.play(e);
       if (names) {
+        gameboard.clearBoard();
         displayController.displayBoard(gameboard.getBoard());
         player1 = player(names[0], "X");
         player2 = player(names[1], "O");
-        turn = player1;
+        turn = helpers.randomStarter(player1, player2);
+        displayController.postMessage(`${turn.getName()}'s turn!`);
       }
     },
     false
   );
   $(gameboardElem).on("click", ".game-square", (e) => {
     const { index } = e.target.dataset;
-    if (gameboard.getBoard()[index].length === 0) {
+    if (gameboard.checkUnoccupied(index) && !gameboard.gameOver()) {
       gameboard.placeToken(index, turn.getToken());
       displayController.displayBoard(gameboard.getBoard());
-      // check for win
-      if (gameboard.checkBoard().result !== undefined) {
-        console.log(`result: ${gameboard.checkBoard().result}`);
-        console.log(`winner: ${gameboard.checkBoard().winner}`);
+      if (gameboard.gameOver()) {
+        displayController.endGame(gameboard.checkBoard().result, turn);
+      } else {
+        turn = turn === player1 ? (turn = player2) : (turn = player1);
+        displayController.postMessage(`${turn.getName()}'s turn!`);
       }
-      turn = turn === player1 ? (turn = player2) : (turn = player1);
     }
   });
+  resetGame.addEventListener(
+    "click",
+    (e) => {
+      e.target.textContent = "Restart";
+      gameboard.clearBoard();
+      displayController.displayBoard(gameboard.getBoard());
+      turn = helpers.randomStarter(player1, player2);
+      displayController.postMessage(`${turn.getName()}'s turn!`);
+    },
+    false
+  );
+  resetPlayers.addEventListener("click", displayController.resetPlayers, false);
 })();

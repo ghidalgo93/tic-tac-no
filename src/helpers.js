@@ -12,7 +12,12 @@ const helpers = (() => {
     }
   }
 
-  return { verifyInputs, removeAllChildNodes };
+  const randomStarter = (p1, p2) => {
+    const rand = Math.floor(Math.random() * 2);
+    return rand === 0 ? p1 : p2;
+  };
+
+  return { verifyInputs, removeAllChildNodes, randomStarter };
 })();
 
 export default helpers;

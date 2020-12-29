@@ -19,23 +19,20 @@
     <div id="app-container" class="app">
       <h1 id="title" class="fade-in">Tic Tac Toe</h1>
       <div id="game-container" class="hide fade-in">
-        <div id="message-board">Get Ready!</div>
+        <div id="message-board" class="text">Get Ready!</div>
         <div id="scoreboard-gameboard">
           <div id="player1-scoreboard">
-            <h3>Player 1</h3>
-            <p id="player1-name"></p>
-            <p id="player1-score">0</p>
+            <div class="text">Player 1</div>
+            <div id="player1-name" class="text"></div>
           </div>
           <div id="gameboard"></div>
           <div id="player2-scoreboard">
-            <div id="player2-scoreboard">
-              <h3>Player 2</h3>
-              <p id="player2-name"></p>
-              <p id="player2-score">0</p>
-            </div>
+            <div class="text">Player 2</div>
+            <div id="player2-name" class="text"></div>
           </div>
         </div>
-        <button id="reset-button">Reset</button>
+        <button id="reset-button" class="game-buttons">Restart</button>
+        <button id="reset-players" class="game-buttons">Players</button>
       </div>
       <button id="start-btn" class="fade-in">Start</button>
       <div id="form-container" class="hide fade-in">
